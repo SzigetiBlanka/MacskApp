@@ -23,7 +23,8 @@ deploy:
   on:
     tags: true
 
-script: ./gradlew :app:build
+script:
+  - chmod +x ./gradlew build connectedCheck
 
 env:
   global:
@@ -39,6 +40,6 @@ before_script:
 notifications:
   email:
     recipients:
-      - szigetiblanka7@gmail.com
+    - szigetiblanka7@gmail.com
     on_success: always
     on_failure: always
