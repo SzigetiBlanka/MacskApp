@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MacskApp</string>
+    <string name="title_activity_macsk_list">MacskList</string>
 </resources>
