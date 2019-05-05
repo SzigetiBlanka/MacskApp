@@ -1,15 +1,20 @@
-package com.example.macskapp;
+package com.example.macskapp.ui.macsklist;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.example.macskapp.DataModel;
+import com.example.macskapp.MacskAboutActivity;
+import com.example.macskapp.MacskAddActivity;
+import com.example.macskapp.R;
 
 import java.util.ArrayList;
 

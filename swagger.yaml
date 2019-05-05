@@ -1,0 +1,141 @@
+---
+swagger: "2.0"
+info:
+  description: This is a simple API
+  version: 1.0.0
+  title: Simple Inventory API
+  contact:
+    email: szigetiblanka7@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /SzigetiBlanka/MacskApp/1.0.0
+tags:
+- name: cats
+  description: Everything about pets
+schemes:
+- https
+- http
+paths:
+  /cats:
+    get:
+      tags:
+      - cats
+      summary: Finds Pets by status
+      description: Multiple status values can be provided with comma separated strings
+      operationId: findPetsByStatus
+      produces:
+      - application/xml
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Cat'
+        400:
+          description: Invalid status value
+  /cat:
+    post:
+      tags:
+      - cats
+      summary: Add a new cat to the store
+      description: ""
+      operationId: addCat
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/xml
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Pet object that needs to be added to the store
+        required: true
+        schema:
+          $ref: '#/definitions/Cat'
+      responses:
+        405:
+          description: Invalid input
+    put:
+      tags:
+      - cats
+      summary: Update an existing cat
+      description: ""
+      operationId: updateCat
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/xml
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Pet object that needs to be added to the store
+        required: true
+        schema:
+          $ref: '#/definitions/Cat'
+      responses:
+        400:
+          description: Invalid ID supplied
+        404:
+          description: Pet not found
+        405:
+          description: Validation exception
+  /cat/{catId}:
+    delete:
+      tags:
+      - cats
+      summary: Delete a cat
+      description: ""
+      operationId: deleteCat
+      produces:
+      - application/xml
+      - application/json
+      parameters:
+      - name: catId
+        in: path
+        description: Cat id to delete
+        required: true
+        type: string
+        format: string
+      responses:
+        400:
+          description: Invalid ID supplied
+        404:
+          description: Cat not found
+definitions:
+  Cat:
+    type: object
+    required:
+    - contact
+    - description
+    - id
+    - imageUrl
+    - name
+    - type
+    properties:
+      id:
+        type: string
+        format: uuid
+        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+      name:
+        type: string
+        example: Czirmos
+      type:
+        type: string
+        example: foltos
+      description:
+        type: string
+        example: idegesítő, karmolós
+      contact:
+        type: string
+        example: 20/234-5678
+      imageUrl:
+        type: string
+        example: https://picsum.photos/200/300

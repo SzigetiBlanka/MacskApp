@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MacskAddActivity"></activity>
         <activity android:name=".MacskAboutActivity" />
-        <activity android:name=".MacskListActivity">
+        <activity android:name=".ui.macsklist.MacskListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

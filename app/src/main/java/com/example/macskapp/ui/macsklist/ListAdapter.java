@@ -1,4 +1,4 @@
-package com.example.macskapp;
+package com.example.macskapp.ui.macsklist;
 
 import android.content.Context;
 import android.support.design.widget.Snackbar;
@@ -10,6 +10,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.macskapp.DataModel;
+import com.example.macskapp.R;
 
 import java.util.ArrayList;
 
