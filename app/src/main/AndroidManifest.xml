@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MacskAddActivity"></activity>
+        <activity android:name=".ui.macskMain.MacskMainActivity"></activity>
+        <activity android:name=".MacskAddActivity" />
         <activity android:name=".MacskAboutActivity" />
         <activity android:name=".ui.macsklist.MacskListActivity">
             <intent-filter>

@@ -1,95 +1,89 @@
 package com.example.macskapp.ui.macsklist;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.design.widget.Snackbar;
+import android.net.Uri;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.macskapp.DataModel;
 import com.example.macskapp.R;
+import com.example.macskapp.model.Cat;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
-class ListAdapter extends ArrayAdapter<DataModel> implements View.OnClickListener {
-    private ArrayList<DataModel> dataSet;
-    Context mContext;
+class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
-    // View lookup cache
-    private static class ViewHolder {
-        TextView txtName;
-        TextView txtType;
-        TextView txtDescription;
-        TextView txtContact;
-        ImageView icon;
-    }
+    private Context context;
+    private List<Cat> catsList;
 
-    public ListAdapter(ArrayList<DataModel> data, Context context) {
-        super(context, R.layout.row, data);
-        this.dataSet = data;
-        this.mContext=context;
-
+    public ListAdapter(Context context, List<Cat> catsList) {
+        this.context = context;
+        this.catsList = catsList;
     }
 
     @Override
-    public void onClick(View v) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.card_cat, parent, false);
+        return new ViewHolder(itemView);
+    }
 
-        int position=(Integer) v.getTag();
-        Object object= getItem(position);
-        DataModel dataModel=(DataModel)object;
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        final Cat cat= catsList.get(position);
 
-        switch (v.getId())
-        {
-            case R.id.icon:
-                Snackbar.make(v, "Release date " +dataModel.getContact(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
-                break;
+        CardView cardView = holder.itemView.findViewById(R.id.cardCat);
+
+        if(cat == null){
+            Log.v("errorCat", "no cat at pos: " + position);
+        }
+
+
+        if(cat != null && cat.getCatName() != null) {
+            holder.catName.setText(cat.getCatName());
+            holder.catCategory.setText(cat.getCategoryName());
+            holder.catDesc.setText(cat.getDescription());
+            holder.image.setImageURI(Uri.parse(cat.getUrl()));
+
+        }else{
+            holder.catName.setText("No cat");
+            holder.catCategory.setText("");
+            holder.catDesc.setText("");
         }
     }
 
-    private int lastPosition = -1;
-
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        // Get the data item for this position
-        DataModel dataModel = getItem(position);
-        // Check if an existing view is being reused, otherwise inflate the view
-        ViewHolder viewHolder; // view lookup cache stored in tag
+    public int getItemCount() {
+        return catsList.size();
+    }
 
-        final View result;
+    protected static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView catName;
+        public TextView catCategory;
+        public TextView catDesc;
+        public ImageView image;
 
-        if (convertView == null) {
+        public ViewHolder(View itemView) {
+            super(itemView);
+            catName = itemView.findViewById(R.id.CatName);
+            catCategory = itemView.findViewById(R.id.catCategory);
+            catDesc = itemView.findViewById(R.id.catDesc);
+            image = itemView.findViewById(R.id.catPicture);
+            itemView.setOnClickListener( new View.OnClickListener(){
 
-            viewHolder = new ViewHolder();
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.row, parent, false);
-            viewHolder.txtName = (TextView) convertView.findViewById(R.id.name);
-            viewHolder.txtType = (TextView) convertView.findViewById(R.id.firstLine);
-            viewHolder.txtDescription = (TextView) convertView.findViewById(R.id.description);
-            viewHolder.txtContact = (TextView) convertView.findViewById(R.id.contact);
-            viewHolder.icon = (ImageView) convertView.findViewById(R.id.icon);
+                @Override
+                public void onClick(View v) {
 
-            result=convertView;
-
-            convertView.setTag(viewHolder);
-        } else {
-            viewHolder = (ViewHolder) convertView.getTag();
-            result=convertView;
+                }
+            });
         }
-
-        viewHolder.txtName.setText(dataModel.getName());
-        viewHolder.txtType.setText(dataModel.getType());
-        viewHolder.txtDescription.setText(dataModel.getDescription());
-        viewHolder.txtContact.setText(dataModel.getContact());
-        viewHolder.icon.setOnClickListener(this);
-        viewHolder.icon.setTag(position);
-        // Return the completed view to render on screen
-        return convertView;
     }
 }
