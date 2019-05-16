@@ -7,8 +7,7 @@ import javax.inject.Inject;
 public class MacskMainPresenter extends Presenter<MacskMainScreen> {
 
 @Inject
-public MacskMainPresenter(){
-        }
+public MacskMainPresenter(){ }
 
 @Override
 public void attachScreen(MacskMainScreen screen){

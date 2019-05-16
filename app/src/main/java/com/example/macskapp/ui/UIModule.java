@@ -9,8 +9,9 @@ import java.util.concurrent.Executors;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
-
+@Module
 public class UIModule {
     private Context context;
 

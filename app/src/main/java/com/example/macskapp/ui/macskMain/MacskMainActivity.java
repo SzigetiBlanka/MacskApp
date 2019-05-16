@@ -28,8 +28,8 @@ public class MacskMainActivity extends AppCompatActivity  implements MacskMainSc
 
         MacskAppApplication.injector.inject(this);
 
-        Button btnShobtnShowCatsList = findViewById(R.id.btnShowCatList);
-        btnShobtnShowCatsList.setOnClickListener(new View.OnClickListener() {
+        Button btnShowCatsList = findViewById(R.id.btnShowCatList);
+        btnShowCatsList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 macskMainPresenter.showCatsList();
@@ -47,12 +47,6 @@ public class MacskMainActivity extends AppCompatActivity  implements MacskMainSc
     protected void onStop() {
         super.onStop();
         macskMainPresenter.detachScreen();
-    }
-
-    @Override
-    public void showCats() {
-        Intent intent = new Intent(MacskMainActivity.this, MacskListActivity.class);
-        startActivity(intent);
     }
 
     //toolbar icon beállítása
@@ -81,5 +75,11 @@ public class MacskMainActivity extends AppCompatActivity  implements MacskMainSc
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void showCats() {
+        Intent intent = new Intent(MacskMainActivity.this, MacskListActivity.class);
+        startActivity(intent);
     }
 }

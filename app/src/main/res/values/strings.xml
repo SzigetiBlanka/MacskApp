@@ -2,4 +2,14 @@
     <string name="app_name">MacskApp</string>
     <string name="title_activity_macsk_list">MacskList</string>
     <string name="appbar_scrolling_view_behavior">Scrolling</string>
+    <string name="save">Save</string>
+    <string name="name_of_the_cat">Name of the Cat</string>
+    <string name="description_of_the_cat">Description of the Cat</string>
+    <string name="contact">Contact</string>
+    <string name="category">Category</string>
+    <string name="title">Title</string>
+    <string name="year">Year</string>
+    <string name="description">Description</string>
+    <string name="rating">Rating</string>
+    <string name="cat_image">Cat image</string>
 </resources>

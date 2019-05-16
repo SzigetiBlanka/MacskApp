@@ -23,6 +23,14 @@ public class Cat extends SugarRecord {
         setCatName();
     }
 
+    public Cat(String catName, String description, String categoryName, String contact){
+        super();
+        this.catName = catName;
+        this.description = description;
+        this.categoryName = categoryName;
+        this.contact = contact;
+    }
+
     public String getCatId() {
         return catId;
     }
@@ -51,9 +59,9 @@ public class Cat extends SugarRecord {
     public String getContact() {
         return contact;
     }
-    /*public void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
-    }*/
+    }
 
     public String getCategoryName() {
         return categoryName;

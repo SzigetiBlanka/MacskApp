@@ -1,117 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MacskAddActivity">
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Contact"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/inputDescriptionLt"
-        tools:layout_editor_absoluteX="40dp"
-        tools:ignore="MissingConstraints" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inputContactLt"
-        android:layout_width="395dp"
-        android:layout_height="60dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="442dp"
-        tools:ignore="MissingConstraints">
+    android:layout_height="wrap_content"
+    android:paddingRight="20dp"
+    android:scrollbars="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="20dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/inputContactEt"
-            android:layout_width="match_parent"
+            android:id="@+id/cat_name_edit_text"
+            android:paddingTop="20dp"
             android:layout_height="wrap_content"
-            android:hint=" galambposta vagy 20/234-5678"
-            android:inputType="text" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inputDescriptionLt"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:layout_editor_absoluteX="8dp"
-        tools:ignore="MissingConstraints">
+            android:layout_width="match_parent"
+            android:hint="@string/name_of_the_cat"
+            android:inputType="text"/>
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/inputDescriptionEt"
-            android:layout_width="match_parent"
-            android:layout_height="152dp"
-            android:hint="karmolós, haszontalan ..."
-            android:inputType="text" />
-    </android.support.design.widget.TextInputLayout>
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Description"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/inputTypeLt"
-        tools:layout_editor_absoluteX="40dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Type"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/inputNameLt"
-        tools:layout_editor_absoluteX="40dp"
-        tools:ignore="MissingConstraints" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inputTypeLt"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:layout_editor_absoluteX="8dp"
-        tools:ignore="MissingConstraints">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/inputTypeEt"
-            android:layout_width="match_parent"
+            android:id="@+id/cat_category_edit_text"
+            android:paddingTop="20dp"
             android:layout_height="wrap_content"
-            android:hint="Amerikai puccos"
-            android:inputType="text" />
-    </android.support.design.widget.TextInputLayout>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="26dp"
-        tools:ignore="MissingConstraints" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inputNameLt"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:layout_editor_absoluteX="8dp"
-        tools:ignore="MissingConstraints">
+            android:layout_width="match_parent"
+            android:hint="@string/category"
+            android:inputType="text"/>
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/inputNameEt"
-            android:layout_width="match_parent"
+            android:id="@+id/cat_description_edit_text"
+            android:paddingTop="20dp"
             android:layout_height="wrap_content"
-            android:hint="Cirmos"
-            android:inputType="text" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_width="match_parent"
+            android:hint="@string/description_of_the_cat"
+            android:inputType="textMultiLine"/>
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/cat_contact_edit_text"
+            android:paddingTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="@string/contact"
+            android:inputType="number"/>
+
+
+
+
+        <Button
+            android:id="@+id/add_new_cat_button"
+            android:background="#1351D8"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/save"/>
+
+    </LinearLayout>
+</ScrollView>
