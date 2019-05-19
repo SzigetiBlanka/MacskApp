@@ -20,7 +20,7 @@ public class CatsResult {
     /**
      * @param cats The cats
      */
-    public void setMovies(List<Cat> cats) {
+    public void setCats(List<Cat> cats) {
         this.cats = cats;
     }
 }

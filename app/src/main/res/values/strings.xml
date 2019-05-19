@@ -12,4 +12,8 @@
     <string name="description">Description</string>
     <string name="rating">Rating</string>
     <string name="cat_image">Cat image</string>
+    <string name="cat_name">Cat name</string>
+    <string name="macskapp_version_v_1_0">MacskApp version v 1.0</string>
+    <string name="_2019">2019</string>
+    <string name="todo">TODO</string>
 </resources>

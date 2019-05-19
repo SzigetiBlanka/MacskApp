@@ -19,7 +19,7 @@ public class NetworkModule {
 
     @Provides
     @Singleton
-    public CatApi provideMoviesApi(Retrofit.Builder retrofitBuilder) {
+    public CatApi provideCatApi(Retrofit.Builder retrofitBuilder) {
         return retrofitBuilder.baseUrl(NetworkConfig.ENDPOINT_ADDRESS).build().create(CatApi.class);
     }
 }

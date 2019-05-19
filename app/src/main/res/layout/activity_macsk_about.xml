@@ -19,7 +19,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.131"
-        app:srcCompat="@mipmap/cat_icon" />
+        app:srcCompat="@mipmap/cat_icon"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textView"
@@ -29,7 +30,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="MacskApp version v 1.0"
+        android:text="@string/macskapp_version_v_1_0"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +46,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="176dp"
         android:layout_marginBottom="198dp"
-        android:text="2019"
+        android:text="@string/_2019"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -16,23 +16,24 @@ import com.example.macskapp.ui.macsklist.MacskListActivity;
 
 import javax.inject.Inject;
 
-public class MacskMainActivity extends AppCompatActivity  implements MacskMainScreen{
+public class MacskMainActivity extends AppCompatActivity implements MacskMainScreen{
     public static final String KEY_CATS = "KEY_CATS";
-    @Inject
-    MacskMainPresenter macskMainPresenter;
+    //@Inject
+    //MacskMainPresenter macskMainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_macsk_main);
 
-        MacskAppApplication.injector.inject(this);
+        //MacskAppApplication.injector.inject(this);
 
         Button btnShowCatsList = findViewById(R.id.btnShowCatList);
         btnShowCatsList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                macskMainPresenter.showCatsList();
+                //macskMainPresenter.showCatsList();
+                showCats();
             }
         });
     }
@@ -40,13 +41,13 @@ public class MacskMainActivity extends AppCompatActivity  implements MacskMainSc
     @Override
     protected void onStart() {
         super.onStart();
-        macskMainPresenter.attachScreen(this);
+        //macskMainPresenter.attachScreen(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        macskMainPresenter.detachScreen();
+        //macskMainPresenter.detachScreen();
     }
 
     //toolbar icon beállítása
@@ -77,7 +78,7 @@ public class MacskMainActivity extends AppCompatActivity  implements MacskMainSc
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+    //@Override
     public void showCats() {
         Intent intent = new Intent(MacskMainActivity.this, MacskListActivity.class);
         startActivity(intent);
