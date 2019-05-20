@@ -4,22 +4,28 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.example.macskapp.AnalyticsApplication;
 import com.example.macskapp.MacskAboutActivity;
 import com.example.macskapp.MacskAppApplication;
 import com.example.macskapp.R;
 import com.example.macskapp.model.Cat;
 import com.example.macskapp.ui.macskMain.MacskMainActivity;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import javax.inject.Inject;
 
 public class MacskAddActivity extends Activity implements MacskAddScreen{
-
+    /*public static final String TAG = "LIST_CATS";
+    public static final String NAME = "LIST";
+    Tracker mTracker;*/
     @Inject
     MacskAddPresenter macskAddPresenter;
 
@@ -32,6 +38,10 @@ public class MacskAddActivity extends Activity implements MacskAddScreen{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_macsk_add);
+
+        /*AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();*/
+
 
         MacskAppApplication.injector.inject(this);
 
@@ -69,9 +79,24 @@ public class MacskAddActivity extends Activity implements MacskAddScreen{
 
     @Override
     public void saveCat(Cat m) {
+       /* mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Alvos")
+                .setAction("Share")
+                .setLabel("zzzzzzz")
+                .build());*/
+
         m.save();
         Intent intent = new Intent(MacskAddActivity.this, MacskMainActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+       /*Log.i(TAG, "Setting screen name: " + NAME);
+        mTracker.setScreenName("Image~" + NAME);
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());*/
+
     }
 
     //toolbar icon beállítása
