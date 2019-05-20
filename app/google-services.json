@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "764360877044",
+    "firebase_url": "https://macskapp-8a432.firebaseio.com",
+    "project_id": "macskapp-8a432",
+    "storage_bucket": "macskapp-8a432.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764360877044:android:ed42e20905b8cb4a",
+        "android_client_info": {
+          "package_name": "com.example.macskapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764360877044-iij9h89bfigfkr8cgsq4pc3b68s3brd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_H8DSkEJy3lpwmOcyTqk4fpzrbno9fBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764360877044-iij9h89bfigfkr8cgsq4pc3b68s3brd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
